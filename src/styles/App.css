@@ -7,13 +7,42 @@
   width: 100vw;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .infoPanel{
   background-color: white;
   width: 50%;
   height: 100%;
+  overflow: scroll;
 }
 
 fieldset{
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+input{
+  max-width: 250px;
+  font-size: 1.2rem;
+  padding: 3px;
+}
+
+.userInputWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
