@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { UserInput } from "./simpleInputs"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
@@ -58,14 +59,24 @@ function WorkExperienceForm() {
 function SkillsForm() {
   const [skillList, setSkillList] = useState([]);
   let skill;
+  const deleteSkill = (index) => {
+    const newArray = [...skillList];
+    newArray.splice(index, 1);
+    setSkillList(newArray);
+  }
 
   return(
     <fieldset>
       <legend> Skills </legend>
-
+      
       <ul>
-        {skillList.map((skill) => {
-          return (<li key={uuidv4()}> {skill} </li>);
+        {skillList.map((skill, index) => {
+          return (
+          <li key={uuidv4()} > 
+          <p>{skill}</p>
+          <DelBtn value={'Delete'} index={index} cb={deleteSkill}></DelBtn>
+           </li>
+          );
         })}
       </ul>
 
@@ -88,5 +99,15 @@ function SkillsForm() {
   )
 }
 
+function DelBtn({index, cb, value}) {
+  return (
+    <button onClick={(e)=> {
+      e.preventDefault();
+      cb(index);
+    }}>
+      {value}
+    </button>
+  )
+}
 
 export {BasicInfoForm, EducationForm, WorkExperienceForm, SkillsForm};
