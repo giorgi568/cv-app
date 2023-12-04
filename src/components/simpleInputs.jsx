@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function UserInput({ type, id, required, text}) {
   return (
     <div className="userInputWrapper">
