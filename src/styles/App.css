@@ -60,3 +60,6 @@ p{
   display: flex;
   justify-content: space-between;
 }
+.addEducation{
+  position: absolute;
+}

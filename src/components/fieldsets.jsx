@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { UserInput } from "./simpleInputs"
+import { UserInput, OngoingInput } from "./simpleInputs"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
 function BasicInfoForm() {
@@ -21,32 +21,23 @@ function BasicInfoForm() {
   )
 }
 
-function EducationForm() {
-  const [edu, setEdu] = useState(
-    {institution: false,
-    degree: false, 
-    startingYear: false, 
-    ongoing: false, 
-    graduatingYear: false}
-    );
-
-  const toggleOngoing = (e) => {
-    e.target.checked ? setEdu({...edu, ongoing: true}) : setEdu({...edu, ongoing: false});
-  } 
-
+function EducationForm({toggleOngoing, edu, index, handleEduDelete, updateInputs}) {
+  
   return(
     <fieldset className="educationForm">
       <legend>Education</legend>
 
-      <UserInput text={"University/Institution:"} id="institution"> </UserInput>
+      <button className="deleteField" onClick={() => {handleEduDelete(index)}}> delete </button>
 
-      <UserInput text={"Degree:"} id="degree"> </UserInput>
+      <UserInput text={"University/Institution:"} id={uuidv4()} property={'institution'} cb={updateInputs} index={index}> </UserInput>
 
-      <UserInput type="month" text={"Starting Year:"} id="startingYear"> </UserInput>
+      <UserInput text={"Degree:"} id={uuidv4()} property={'degree'} cb={updateInputs} index={index}> </UserInput>
 
-      <UserInput type="checkbox" text={"On-going"} id="on-going" toggleOngoing={toggleOngoing}> </UserInput>
+      <UserInput type="month" text={"Starting Year:"} id={uuidv4()} property={'startingYear'} cb={updateInputs} index={index}> </UserInput>
+
+      <OngoingInput type="checkbox" text={"On-going"} id={uuidv4()} toggleOngoing={toggleOngoing} index={index}> </OngoingInput>
       
-      { !edu.ongoing && <UserInput type="month" text={"Graduating Year:"} id="graduatingYear"> </UserInput>}        
+      { !edu.ongoing && <UserInput type="month" text={"Graduating Year:"} id={uuidv4()} property={'graduatingYear'} cb={updateInputs} index={index}> </UserInput>}        
     </fieldset>
   )
 }
@@ -60,8 +51,9 @@ function WorkExperienceForm() {
     endYear: false}
     );
   const toggleOngoing = (e) => {
-    e.target.checked ? setWorkExp({...workExp, ongoing: true}) : setWorkExp({...workExp, ongoing: false});
-  } 
+    // e.target.checked ? setWorkExp({...workExp, ongoing: true}) : setWorkExp({...workExp, ongoing: false});
+    setWorkExp({...workExp, ongoing: e.target.checked})
+  }
   return (
     <fieldset className="workExperienceForm">
       <legend> Work Experience </legend>
@@ -72,7 +64,7 @@ function WorkExperienceForm() {
 
       <UserInput type="month" text={"Starting Year:"} id="startingYearWork"> </UserInput>
 
-      <UserInput type="checkbox" text={"On-going"} id="on-goingWork" toggleOngoing={toggleOngoing} > </UserInput>
+      <OngoingInput type="checkbox" text={"On-going"} id="on-goingWork" toggleOngoing={toggleOngoing} > </OngoingInput>
 
       {!workExp.ongoing && <UserInput type="month" text={"End Year:"} id="endYear"> </UserInput>}
       
