@@ -22,6 +22,18 @@ function BasicInfoForm() {
 }
 
 function EducationForm() {
+  const [edu, setEdu] = useState(
+    {institution: false,
+    degree: false, 
+    startingYear: false, 
+    ongoing: false, 
+    graduatingYear: false}
+    );
+
+  const toggleOngoing = (e) => {
+    e.target.checked ? setEdu({...edu, ongoing: true}) : setEdu({...edu, ongoing: false});
+  } 
+
   return(
     <fieldset className="educationForm">
       <legend>Education</legend>
@@ -32,13 +44,24 @@ function EducationForm() {
 
       <UserInput type="month" text={"Starting Year:"} id="startingYear"> </UserInput>
 
-      <UserInput type="checkbox" text={"On-going"} id="on-going"> </UserInput>
-      <UserInput type="month" text={"Graduating Year:"} id="graduatingYear"> </UserInput>        
+      <UserInput type="checkbox" text={"On-going"} id="on-going" toggleOngoing={toggleOngoing}> </UserInput>
+      
+      { !edu.ongoing && <UserInput type="month" text={"Graduating Year:"} id="graduatingYear"> </UserInput>}        
     </fieldset>
   )
 }
 
 function WorkExperienceForm() {
+  const [workExp, setWorkExp] = useState(
+    {position: false,
+    workplace: false, 
+    startingYear: false, 
+    ongoing: false, 
+    endYear: false}
+    );
+  const toggleOngoing = (e) => {
+    e.target.checked ? setWorkExp({...workExp, ongoing: true}) : setWorkExp({...workExp, ongoing: false});
+  } 
   return (
     <fieldset className="workExperienceForm">
       <legend> Work Experience </legend>
@@ -49,8 +72,9 @@ function WorkExperienceForm() {
 
       <UserInput type="month" text={"Starting Year:"} id="startingYearWork"> </UserInput>
 
-      <UserInput type="checkbox" text={"On-going"} id="on-goingWork"> </UserInput>
-      <UserInput type="month" text={"End Year:"} id="endYear"> </UserInput>
+      <UserInput type="checkbox" text={"On-going"} id="on-goingWork" toggleOngoing={toggleOngoing} > </UserInput>
+
+      {!workExp.ongoing && <UserInput type="month" text={"End Year:"} id="endYear"> </UserInput>}
       
     </fieldset>
   )
@@ -73,9 +97,10 @@ function SkillsForm() {
         {skillList.map((skill, index) => {
           return (
           <li key={uuidv4()} > 
-          <p>{skill}</p>
+          <p>{skill}
           <DelBtn value={'Delete'} index={index} cb={deleteSkill}></DelBtn>
-           </li>
+          </p>
+          </li>
           );
         })}
       </ul>
@@ -101,7 +126,7 @@ function SkillsForm() {
 
 function DelBtn({index, cb, value}) {
   return (
-    <button onClick={(e)=> {
+    <button className="skillDelBtn" onClick={(e)=> {
       e.preventDefault();
       cb(index);
     }}>
