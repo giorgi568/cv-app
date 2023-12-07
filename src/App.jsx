@@ -37,9 +37,11 @@ function App() {
       const updatedEdu = [...prevEdu];
       updatedEdu[index] = {
         ...updatedEdu[index],
-        [property]: 1
-      }
+        [property]: e.target.value
+      };
+      return updatedEdu
     })
+    console.log(edu)
   }
 
   return (
