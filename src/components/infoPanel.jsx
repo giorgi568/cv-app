@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { BasicInfoForm, EducationForm, WorkExperienceForm, SkillsForm } from "./fieldsets"
 
-export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateInputs}) {
+export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateInputs,
+  toggleOngoingWork, workExp, handleWorkDelete, updateInputsWork}) {
   return (
     <div className="infoPanel">
     <form action="getInformation" className="form" id="form">
@@ -12,7 +13,9 @@ export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateIn
       <EducationForm key={obj.id} toggleOngoing={toggleOngoing} edu={obj} index={index} handleEduDelete={handleEduDelete} updateInputs={updateInputs}></EducationForm>
     )}
 
-    <WorkExperienceForm></WorkExperienceForm>
+    {workExp.map((obj, index) =>
+      <WorkExperienceForm key={obj.id} toggleOngoingWork={toggleOngoingWork} workExp={obj} index={index} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}></WorkExperienceForm>
+    )}
     
     <SkillsForm></SkillsForm>
    

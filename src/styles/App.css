@@ -63,3 +63,7 @@ p{
 .addEducation{
   position: absolute;
 }
+.addWorkExperience{
+  position: absolute;
+  left: 0;
+}

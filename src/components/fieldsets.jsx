@@ -42,31 +42,23 @@ function EducationForm({toggleOngoing, edu, index, handleEduDelete, updateInputs
   )
 }
 
-function WorkExperienceForm() {
-  const [workExp, setWorkExp] = useState(
-    {position: false,
-    workplace: false, 
-    startingYear: false, 
-    ongoing: false, 
-    endYear: false}
-    );
-  const toggleOngoing = (e) => {
-    // e.target.checked ? setWorkExp({...workExp, ongoing: true}) : setWorkExp({...workExp, ongoing: false});
-    setWorkExp({...workExp, ongoing: e.target.checked})
-  }
+function WorkExperienceForm({toggleOngoingWork, workExp, index, handleWorkDelete, updateInputsWork}) {
+  
   return (
     <fieldset className="workExperienceForm">
       <legend> Work Experience </legend>
 
-      <UserInput text={"Title/Position:"} id="position"> </UserInput>
+      <button className="deleteField" onClick={() => {handleWorkDelete(index)}}> delete </button>
 
-      <UserInput text={"Workplace:"} id="workplace"> </UserInput>
+      <UserInput text={"Workplace:"} id={uuidv4()} property={'workplace'} cb={updateInputsWork} index={index}> </UserInput>
 
-      <UserInput type="month" text={"Starting Year:"} id="startingYearWork"> </UserInput>
+      <UserInput text={"Title/Position:"} id={uuidv4()} property={'position'} cb={updateInputsWork} index={index}> </UserInput>
 
-      <OngoingInput type="checkbox" text={"On-going"} id="on-goingWork" toggleOngoing={toggleOngoing} > </OngoingInput>
+      <UserInput type="month" text={"Starting Year:"} id={uuidv4()} property={'startingYear'} cb={updateInputsWork} index={index}> </UserInput>
 
-      {!workExp.ongoing && <UserInput type="month" text={"End Year:"} id="endYear"> </UserInput>}
+      <OngoingInput type="checkbox" text={"On-going"} id={uuidv4()} toggleOngoing={toggleOngoingWork} index={index} > </OngoingInput>
+
+      {!workExp.ongoing && <UserInput type="month" text={"End Year:"} id={uuidv4()} property={'endYear'} cb={updateInputsWork} index={index}> </UserInput>}
       
     </fieldset>
   )
