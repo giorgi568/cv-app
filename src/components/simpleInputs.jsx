@@ -3,7 +3,9 @@ function UserInput({ type, id, required, text, cb, property, index}) {
   return (
     <div className="userInputWrapper">
       <label htmlFor={id}>{text}</label>
-      <input type={type} id={id} required={required} onInput={(e) => cb(index, property, e)}/>
+      <input type={type} id={id} required={required} onInput={(e) => {
+        index ? cb(index, property, e) : cb(property, e)
+        }}/>
     </div>
   )
 }

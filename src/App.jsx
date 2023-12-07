@@ -83,6 +83,23 @@ function App() {
     })
   }
 
+  // state handling for basic info panel
+  const [basicInfo, setBasicInfo] = useState(
+    {firstName: false,
+    lastName: false, 
+    email: false, 
+    phoneNumber: false, 
+    description: false,
+    id: uuidv4()}
+  );
+  const updateInputsBasic = (property, e) => {
+    console.log(4444, e)
+    setBasicInfo((prevBasicInfo) => ({
+      ...prevBasicInfo,
+      [property]: e.target.value
+    }));
+  }
+
   return (
     <>
       <button className='addEducation' onClick={() => {
@@ -116,7 +133,8 @@ function App() {
       }}>add work experience</button>
       
       <InfoPanel toggleOngoing={toggleOngoing} edu={edu} handleEduDelete={handleEduDelete} updateInputs={updateInputs} 
-      toggleOngoingWork={toggleOngoingWork} workExp={workExp} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}></InfoPanel>
+      toggleOngoingWork={toggleOngoingWork} workExp={workExp} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}
+      basicInfo={basicInfo} updateInputsBasic={updateInputsBasic}></InfoPanel>
     </>
   )
 }

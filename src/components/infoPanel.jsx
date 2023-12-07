@@ -2,12 +2,13 @@
 import { BasicInfoForm, EducationForm, WorkExperienceForm, SkillsForm } from "./fieldsets"
 
 export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateInputs,
-  toggleOngoingWork, workExp, handleWorkDelete, updateInputsWork}) {
+  toggleOngoingWork, workExp, handleWorkDelete, updateInputsWork,
+  updateInputsBasic}) {
   return (
     <div className="infoPanel">
     <form action="getInformation" className="form" id="form">
 
-    <BasicInfoForm></BasicInfoForm>
+    <BasicInfoForm updateInputsBasic={updateInputsBasic}></BasicInfoForm>
 
     {edu.map((obj, index) =>
       <EducationForm key={obj.id} toggleOngoing={toggleOngoing} edu={obj} index={index} handleEduDelete={handleEduDelete} updateInputs={updateInputs}></EducationForm>

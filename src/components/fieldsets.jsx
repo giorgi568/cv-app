@@ -2,21 +2,21 @@
 import { UserInput, OngoingInput } from "./simpleInputs"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
-function BasicInfoForm() {
+function BasicInfoForm({updateInputsBasic}) {
   return (
     <fieldset className="basicInfoForm">
       <legend>Basic Info</legend>
 
-      <UserInput text={"First Name:*"} id="firstName"> </UserInput>
+      <UserInput text={"First Name:*"} id="firstName" property={'firstName'} cb={updateInputsBasic} > </UserInput>
             
-      <UserInput text={"Last Name:*"} id="lastName"> </UserInput>
+      <UserInput text={"Last Name:*"} id="lastName" property={'lastName'} cb={updateInputsBasic} > </UserInput>
 
-      <UserInput text={"Email:*"} id="email"> </UserInput>
+      <UserInput text={"Email:*"} id="email" property={'email'} cb={updateInputsBasic} > </UserInput>
 
-      <UserInput text={"Phone Number:*"} id="phoneNumber"> </UserInput>
+      <UserInput text={"Phone Number:*"} id="phoneNumber" property={'phoneNumber'} cb={updateInputsBasic} > </UserInput>
 
       <label htmlFor="description">Write Something About You Below*:</label>
-      <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+      <textarea name="description" id="description" cols="30" rows="10" onChange={(e) => updateInputsBasic('description', e)}></textarea>
     </fieldset>
   )
 }
