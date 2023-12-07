@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { UserInput, OngoingInput } from "./simpleInputs"
-import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
 function BasicInfoForm({updateInputsBasic}) {
   return (
@@ -64,14 +63,8 @@ function WorkExperienceForm({toggleOngoingWork, workExp, index, handleWorkDelete
   )
 }
 
-function SkillsForm() {
-  const [skillList, setSkillList] = useState([]);
+function SkillsForm({deleteSkill, addSkill, skillList}) {
   let skill;
-  const deleteSkill = (index) => {
-    const newArray = [...skillList];
-    newArray.splice(index, 1);
-    setSkillList(newArray);
-  }
 
   return(
     <fieldset>
@@ -94,12 +87,8 @@ function SkillsForm() {
         <input type="text" id="addSkill" required  onChange={(e) => skill = e.target.value}/>
         <button onClick={(e) => {
           e.preventDefault();
-          skill && setSkillList([
-            ...skillList,
-            skill
-          ]);
+          addSkill(skill);
           document.getElementById('addSkill').value = '';
-          console.log(skillList);
         }}>
           Add</button>
       </div>

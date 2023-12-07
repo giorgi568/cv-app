@@ -92,6 +92,7 @@ function App() {
     description: false,
     id: uuidv4()}
   );
+  //not using id on this state
   const updateInputsBasic = (property, e) => {
     console.log(4444, e)
     setBasicInfo((prevBasicInfo) => ({
@@ -100,41 +101,64 @@ function App() {
     }));
   }
 
+  //state handling for skills
+  const [skillList, setSkillList] = useState([]);
+  const deleteSkill = (index) => {
+    const newArray = [...skillList];
+    newArray.splice(index, 1);
+    setSkillList(newArray);
+  }
+  const addSkill = (skill) => {
+    skill && setSkillList([
+      ...skillList,
+      skill
+    ]);
+  }
+
   return (
     <>
-      <button className='addEducation' onClick={() => {
-        const newArr = [
-          ...edu,
-          {
-            institution: false,
-            degree: false, 
-            startingYear: false, 
-            ongoing: false, 
-            graduatingYear: false,
-            id: uuidv4()
-          }
-        ]
-        setEdu(newArr);
-      }}>add education</button>
-
-      <button className='addWorkExperience' onClick={() => {
-        const newArr = [
-          ...workExp,
-          {
-            workplace: false,
-            position: false, 
-            startingYear: false, 
-            ongoing: false, 
-            endYear: false,
-            id: uuidv4()
-          }
-        ]
-        setWorkExp(newArr);
-      }}>add work experience</button>
-      
-      <InfoPanel toggleOngoing={toggleOngoing} edu={edu} handleEduDelete={handleEduDelete} updateInputs={updateInputs} 
-      toggleOngoingWork={toggleOngoingWork} workExp={workExp} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}
-      basicInfo={basicInfo} updateInputsBasic={updateInputsBasic}></InfoPanel>
+      <div className='navbar'>
+        <button className='addEducation' onClick={() => {
+          const newArr = [
+            ...edu,
+            {
+              institution: false,
+              degree: false,
+              startingYear: false,
+              ongoing: false,
+              graduatingYear: false,
+              id: uuidv4()
+            }
+          ]
+          setEdu(newArr);
+        }}>add education</button>
+        <button className='addWorkExperience' onClick={() => {
+          const newArr = [
+            ...workExp,
+            {
+              workplace: false,
+              position: false,
+              startingYear: false,
+              ongoing: false,
+              endYear: false,
+              id: uuidv4()
+            }
+          ]
+          setWorkExp(newArr);
+        }}>add work experience</button>
+      </div>
+        
+      <div className="mainContentWrapper">
+        <InfoPanel toggleOngoing={toggleOngoing} edu={edu} handleEduDelete={handleEduDelete} updateInputs={updateInputs}
+        toggleOngoingWork={toggleOngoingWork} workExp={workExp} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}
+        basicInfo={basicInfo} updateInputsBasic={updateInputsBasic} deleteSkill={deleteSkill} addSkill={addSkill} skillList={skillList}></InfoPanel>
+        
+        <div className="preview">
+          <div className="basicInfoPreview">
+            <h1>{basicInfo.firstName} {basicInfo.lastName}</h1>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

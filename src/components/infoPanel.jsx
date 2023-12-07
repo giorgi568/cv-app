@@ -3,7 +3,7 @@ import { BasicInfoForm, EducationForm, WorkExperienceForm, SkillsForm } from "./
 
 export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateInputs,
   toggleOngoingWork, workExp, handleWorkDelete, updateInputsWork,
-  updateInputsBasic}) {
+  updateInputsBasic, deleteSkill, addSkill, skillList}) {
   return (
     <div className="infoPanel">
     <form action="getInformation" className="form" id="form">
@@ -18,9 +18,9 @@ export default function InfoPanel({toggleOngoing, edu, handleEduDelete, updateIn
       <WorkExperienceForm key={obj.id} toggleOngoingWork={toggleOngoingWork} workExp={obj} index={index} handleWorkDelete={handleWorkDelete} updateInputsWork={updateInputsWork}></WorkExperienceForm>
     )}
     
-    <SkillsForm></SkillsForm>
+    <SkillsForm deleteSkill={deleteSkill} addSkill={addSkill} skillList={skillList}></SkillsForm>
    
-    <input type="submit" id="submit" value="Submit" />
+    {/* <input type="submit" id="submit" value="Submit" /> */}
 
     </form>
     </div>

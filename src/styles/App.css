@@ -60,10 +60,32 @@ p{
   display: flex;
   justify-content: space-between;
 }
-.addEducation{
+/* .addEducation{
   position: absolute;
+  transform: translateX(-450px);
+  top: 4;
 }
 .addWorkExperience{
   position: absolute;
   left: 0;
+} */
+
+.navbar{
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+.preview{
+  width: 50%;
+  background-color: red;
+}
+.mainContentWrapper{
+  display: flex;
+}
+.basicInfoPreview{
+  height: 150px;
+  width: 100%;
+  background-color: greenyellow;
+  padding: 15px 5px;
+  box-sizing: border-box;
 }
