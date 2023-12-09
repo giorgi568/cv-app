@@ -103,7 +103,11 @@ function App() {
   };
 
   //state handling for skills
-  const [skillList, setSkillList] = useState(['Writing Scalable Code', 'Building Awesome Software', 'Solving Complex Problems']);
+  const [skillList, setSkillList] = useState([
+    'Writing Scalable Code',
+    'Building Awesome Software',
+    'Solving Complex Problems',
+  ]);
   const deleteSkill = (index) => {
     const newArray = [...skillList];
     newArray.splice(index, 1);
@@ -118,6 +122,9 @@ function App() {
       <div className='navbar'>
         <button
           className='addEducation'
+          style={{
+            marginBottom: 15 + 'px',
+          }}
           onClick={() => {
             const newArr = [
               ...edu,
@@ -133,7 +140,7 @@ function App() {
             setEdu(newArr);
           }}
         >
-          add education
+          Add Education
         </button>
         <button
           className='addWorkExperience'
@@ -152,7 +159,7 @@ function App() {
             setWorkExp(newArr);
           }}
         >
-          add work experience
+          Add Work Experience
         </button>
       </div>
 

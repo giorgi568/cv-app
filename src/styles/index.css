@@ -5,8 +5,8 @@
 
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #242424;
-
+  /* background-color: #242424; */
+  background-color: #f3f4f6;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -48,10 +48,14 @@ button {
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 5px 0px 5px 0px;
 }
 button:hover {
   border-color: #646cff;
   color:#646cff;
+}
+input:focus, textarea:focus{
+  outline-color:#646cff ;
 }
 button:focus,
 button:focus-visible {
