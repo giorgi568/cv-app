@@ -21,15 +21,18 @@
   background: #555;
 }
 
-.infoPanel{
+.infoPanel {
   background-color: white;
-  width: 50%;
-  height: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+  width: 42%;
+  /* max-height: 95vh; */
+  /* max-height: 1100px; */
+  /* overflow: hidden; */
+  /* overflow-x: hidden; */
+  border-radius: 10px;
+  box-shadow: 0px 0px 60px 5px #888;
 }
 
-fieldset{
+fieldset {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,55 +40,71 @@ fieldset{
   margin: 10px;
 }
 
-input{
+input {
   max-width: 250px;
   font-size: 1.2rem;
   padding: 3px;
 }
 
-.userInputWrapper{
+.userInputWrapper {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
   max-width: 450px;
 }
-li{
+li {
   text-align: left;
 }
-ul{
+ul {
   margin: 0;
 }
-p{
+p {
   display: flex;
   justify-content: space-between;
 }
-/* .addEducation{
-  position: absolute;
-  transform: translateX(-450px);
-  top: 4;
-}
-.addWorkExperience{
-  position: absolute;
-  left: 0;
-} */
 
-.navbar{
+.navbar {
   position: sticky;
   width: 100%;
   top: 0;
 }
-.preview{
-  width: 50%;
-  background-color: red;
+.preview {
+  width: 55%;
+  background-color: white;
+  min-height: 850px;
 }
-.mainContentWrapper{
+.mainContentWrapper {
   display: flex;
+  justify-content: space-between;
 }
-.basicInfoPreview{
+.basicInfoPreview {
   height: 150px;
   width: 100%;
   background-color: greenyellow;
   padding: 15px 5px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.emailSvg {
+  background-image: url(/src/assets/email.svg);
+  width: 20px;
+  height: 20px;
+}
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.emailWrapper,
+.phoneWrapper {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }

@@ -4,7 +4,8 @@ return (
     <div className="userInputWrapper">
       <label htmlFor={id}>{text}</label>
       <input type={type} id={id} onInput={(e) => {
-        index ? cb(index, property, e) : cb(property, e)
+        typeof index !== 'undefined' ? cb(index, property, e) : cb(property, e)
+        //we check typeof because 0 is false!
         }}/>
     </div>
   )
