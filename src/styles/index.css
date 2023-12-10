@@ -2,7 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
@@ -66,4 +65,38 @@ p, h2{
 }
 h2{
   font-size: 1.2rem;
+}
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background:#535bf2;
+}
+
+::selection {
+  color: black;
+  background:#535bf2;
+}
+input[type='color']{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  inline-size: 0px;
+  block-size: 0px;
+  /* background-color: transparent; */
+  width: 10px;
+  height: 10px;
+  border: none;
+  overflow: hidden;
+  color: red;
+  border-radius: 50%;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
 }

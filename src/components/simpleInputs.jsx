@@ -18,8 +18,13 @@ UserInput.defaultProps = {
 function OngoingInput({ type, id, text, toggleOngoing, index}) {
   return (
     <div className="userInputWrapper">
-      <label htmlFor={id}>{text}</label>
-      <input type={type} id={id} onChange={(e) => toggleOngoing(e, index)}/>
+      <label htmlFor={id} className="ongoingInput">
+        {text}
+      <div className="switch">
+        <input type={type} id={id} onChange={(e) => toggleOngoing(e, index)} />
+        <span className="slider"></span>
+      </div>
+      </label>
     </div>
   )
 }
