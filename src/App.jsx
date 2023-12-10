@@ -3,7 +3,7 @@ import './styles/App.css';
 import InfoPanel from './components/infoPanel';
 import Preview from './components/preview';
 import { v4 as uuidv4 } from 'uuid';
-import  html2pdf  from 'html2pdf.js';
+import html2pdf from 'html2pdf.js';
 
 function App() {
   //state handling for education panel
@@ -165,15 +165,63 @@ function App() {
         <button
           className='download'
           style={{
-            marginBottom: 15 + 'px',
+            marginTop: 15 + 'px',
           }}
           onClick={() => {
             const file = document.getElementById('downloadable');
             html2pdf(file, { file: 'my_resume.pdf' }).save();
-            console.log(file)
+            console.log(file);
           }}
         >
           Download
+          <svg
+            width='30px'
+            height='30px'
+            viewBox='0 0 24 24'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <title />
+
+            <g id='Complete'>
+              <g id='download'>
+                <g>
+                  <path
+                    d='M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7'
+                    fill='none'
+                    stroke='#535bf2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                  />
+
+                  <g>
+                    <polyline
+                      data-name='Right'
+                      fill='none'
+                      id='Right-2'
+                      points='7.9 12.3 12 16.3 16.1 12.3'
+                      stroke='#535bf2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                    />
+
+                    <line
+                      fill='none'
+                      stroke='#535bf2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      x1='12'
+                      x2='12'
+                      y1='2.7'
+                      y2='14.2'
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
         </button>
       </div>
 

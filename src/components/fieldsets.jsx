@@ -249,19 +249,19 @@ function SkillsForm({ deleteSkill, addSkill, skillList }) {
       <ul>
         {skillList.map((skill, index) => {
           return (
-            <li key={uuidv4()} style={{color: '#646cff'}}>
+            <li key={uuidv4()} style={{color: '#646cff', display: 'flex', alignItems: 'center'}}>
               <p
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  width: 350 + 'px',
+                  width: 310 + 'px',
                   color: 'black'
                 }}
               >
                 {skill}
-                <DelBtn index={index} cb={deleteSkill}></DelBtn>
               </p>
+                <DelBtn index={index} cb={deleteSkill}></DelBtn>
             </li>
           );
         })}
