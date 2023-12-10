@@ -30,7 +30,7 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
       <div className='iconsWrapper'>
         <svg
           className='previewIcon fontIcon'
-          fill='#000000'
+          fill={accentColor}
           width='20px'
           height='20px'
           viewBox='0 0 17 16'
@@ -45,6 +45,7 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
         <input
           type='color'
           className='previewIcon'
+          value={accentColor}
           style={{ height: 30 + 'px', width: 30 + 'px' }}
           onChange={(e) => {
             setAccentColor(e.target.value);

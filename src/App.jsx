@@ -163,7 +163,7 @@ function App() {
           Add Work Experience
         </button>
         <button
-          className='Download'
+          className='download'
           style={{
             marginBottom: 15 + 'px',
           }}
