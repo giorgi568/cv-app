@@ -3,6 +3,7 @@ import './styles/App.css';
 import InfoPanel from './components/infoPanel';
 import Preview from './components/preview';
 import { v4 as uuidv4 } from 'uuid';
+import  html2pdf  from 'html2pdf.js';
 
 function App() {
   //state handling for education panel
@@ -160,6 +161,19 @@ function App() {
           }}
         >
           Add Work Experience
+        </button>
+        <button
+          className='Download'
+          style={{
+            marginBottom: 15 + 'px',
+          }}
+          onClick={() => {
+            const file = document.getElementById('downloadable');
+            html2pdf(file, { file: 'my_resume.pdf' }).save();
+            console.log(file)
+          }}
+        >
+          Download
         </button>
       </div>
 

@@ -20,7 +20,8 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
     const rgb = hexToRgb(hex);
     const [r, g, b] = rgb;
     const l = (0.299 * r) + (0.587 * g) + (0.114 * b)
-    return l > 186 ? 'black' : 'white'
+    return l > 100 ? 'black' : 'white'
+    //standar is l>186
   };
   let textColor = calculateLuminance(accentColor);
   return (
@@ -52,7 +53,7 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
         />
       </div>
 
-      <div className='printable' style={{ fontFamily: font }}>
+      <div id='downloadable' style={{ fontFamily: font }}>
         <div
           className='basicInfoPreview'
           style={{ backgroundColor: accentColor, color: textColor }}
@@ -116,6 +117,8 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
                 backgroundColor: 'lightgrey',
                 marginBottom: 10 + 'px',
                 color: accentColor,
+                display: 'flex',
+                justifyContent: 'center',
               }}
             >
               About Me
@@ -130,6 +133,8 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
                   marginBottom: 10 + 'px',
                   marginTop: 30 + 'px',
                   color: accentColor,
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 Education
@@ -167,6 +172,8 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
                   marginBottom: 10 + 'px',
                   marginTop: 30 + 'px',
                   color: accentColor,
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 Work Experience
@@ -204,12 +211,14 @@ export default function Preview({ basicInfo, edu, workExp, skillList }) {
                   marginBottom: 10 + 'px',
                   marginTop: 30 + 'px',
                   color: accentColor,
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 Skills
               </h2>
               {skillList.map((element) => (
-                <li key={uuidv4()}>{element} </li>
+                <li key={uuidv4()} style={{marginLeft: 10 + 'px'}}>{element} </li>
               ))}
             </div>
           )}
