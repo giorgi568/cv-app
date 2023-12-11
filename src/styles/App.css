@@ -100,6 +100,7 @@ p {
   position: sticky;
   top: 0;
   height: 200px;
+  max-width: 110px;
   /* width: 50px; */
 }
 .preview {
@@ -136,6 +137,7 @@ p {
   
 }
 .mainContentWrapper {
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   gap: 5px;
