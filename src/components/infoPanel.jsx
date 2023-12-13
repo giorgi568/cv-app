@@ -22,7 +22,7 @@ export default function InfoPanel({
 }) {
   return (
     <div className='infoPanel'>
-      <div style={{overflowY: 'scroll', height: 95 + 'vh'}}>
+      <div className='infoWrapper' style={{overflowY: 'scroll', height: 95 + 'vh'}}>
         <form action='getInformation' className='form' id='form'>
           <BasicInfoForm updateInputsBasic={updateInputsBasic}></BasicInfoForm>
           {edu.map((obj, index) => (

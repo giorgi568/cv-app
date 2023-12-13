@@ -66,6 +66,7 @@ function EducationForm({
           display: 'flex',
           justifyContent: 'space-between',
         }}
+        className='formHeader'
       >
         <legend style={{ display: 'flex', justifyContent: 'center' }}>
           Education
@@ -92,7 +93,7 @@ function EducationForm({
 
       <div className='inputWrapper'>
         <UserInput
-          text={'School'}
+          text={'School:'}
           id={uuidv4()}
           property={'institution'}
           cb={updateInputs}
@@ -160,6 +161,7 @@ function WorkExperienceForm({
           display: 'flex',
           justifyContent: 'space-between',
         }}
+        className='formHeader'
       >
         <legend style={{ display: 'flex', justifyContent: 'center' }}>
           Work Experience
@@ -243,7 +245,7 @@ function SkillsForm({ deleteSkill, addSkill, skillList }) {
   let skill;
 
   return (
-    <fieldset style={{}}>
+    <fieldset className='skillsForm'>
       <legend> Skills </legend>
 
       <ul>

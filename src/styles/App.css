@@ -249,3 +249,90 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+@media (max-width: 1230px) {
+  #root {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar {
+    display: flex;
+    min-width: 100vw;
+    justify-content: space-around;
+    position:relative;
+  }
+  .mainContentWrapper {
+    justify-content: center;
+    gap: 40px;
+  }
+  .addEducation, .addWorkExperience, .download {
+    margin: 0 !important;
+    height: 60px;
+    width: 30vw;
+  }
+  .download {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+  }
+  .infoPanel {
+    width: 90vw;
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+  .form{
+    width: 85vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inputWrapper{
+    width: 80vw;
+    align-items: center;
+  }
+  .userInputWrapper, textarea, label{
+    width: 80vw;
+    flex-direction: column;
+  }
+  .infoWrapper{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+  }
+  fieldset{
+    margin: 0;
+    padding: 10px 1px;
+    /* margin-bottom: 10px; */
+    /* width: 50%; */
+    /* width: 70vw !important; */
+  }
+  label{
+    width: 50vw !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .skillsForm{
+    max-width: 90vw;
+  }
+  li > p {
+    width: 60vw !important;
+  }
+  textarea, .formHeader{
+    width: 70vw !important;
+  }
+  input[type="text"]{
+    min-width: 50vw;
+  }
+  
+  .preview {
+    width: 90vw;
+    min-width: 300px;
+  }
+}
