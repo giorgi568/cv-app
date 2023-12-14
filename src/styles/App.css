@@ -319,6 +319,9 @@ input:checked + .slider:before {
     gap: 5px;
     color: black;
   }
+  p, legend {
+    color: black;
+  }
   .skillsForm{
     max-width: 90vw;
   }
