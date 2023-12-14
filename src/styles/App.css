@@ -322,7 +322,7 @@ input:checked + .slider:before {
   /* p, legend {
     color: black;
   } */
-  #root {
+  #root,input {
     color: black;
   }
   .skillsForm{
@@ -333,6 +333,7 @@ input:checked + .slider:before {
   }
   textarea, .formHeader{
     width: 70vw !important;
+    color: black;
   }
   input[type="text"]{
     min-width: 50vw;
