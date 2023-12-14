@@ -319,7 +319,10 @@ input:checked + .slider:before {
     gap: 5px;
     color: black;
   }
-  p, legend {
+  /* p, legend {
+    color: black;
+  } */
+  #root {
     color: black;
   }
   .skillsForm{
