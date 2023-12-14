@@ -317,6 +317,7 @@ input:checked + .slider:before {
     justify-content: center;
     align-items: center;
     gap: 5px;
+    color: black;
   }
   .skillsForm{
     max-width: 90vw;
